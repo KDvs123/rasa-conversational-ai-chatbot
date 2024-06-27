@@ -66,13 +66,7 @@ nlu:
     - so good
     - so perfect
 
-- intent: weather
-  examples: |
-    - what's the weather like
-    - what's the weather like today
-    - How is the weather today?
-    - weather
-    - tell me the weather
+
 
 - intent: mood_unhappy
   examples: |
