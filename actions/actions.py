@@ -25,3 +25,26 @@
 #         dispatcher.utter_message(text="Hello World!")
 #
 #         return []
+
+
+# actions.py
+
+from typing import Any, Text, Dict, List
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+import ml_model  # Import the ML model functions
+
+class ActionAnswerQuestion(Action):
+
+    def name(self) -> Text:
+        return "action_answer_question"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        user_question = tracker.latest_message.get('text')
+        response = ml_model.answer_question(user_question)
+
+        dispatcher.utter_message(text=response)
+        return []
