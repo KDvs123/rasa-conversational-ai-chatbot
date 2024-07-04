@@ -1,35 +1,17 @@
-version: "3.1"
+# data/stories.yml
 
 stories:
-
-- story: happy path
+- story: greet the user
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
 
-- story: tell weather
+- story: goodbye the user
   steps:
-  - user: "What is weather today"
-  - action: utter_weather
-
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
+  - intent: goodbye
   - action: utter_goodbye
+
+- story: answer user question
+  steps:
+  - intent: ask_question
+  - action: action_answer_question
